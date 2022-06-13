@@ -1,0 +1,12 @@
+{"courses": [
+{"id":1,"course_code":"42806-503","course_name":"MASTER OF INFORMATION TECHNOLOGY"},
+{"id":2,"course_code":"13734-123","course_name":"GRADUATE DIPLOMA OF BUSINESS"},
+{"id":3,"course_code":"49999-128","course_name":"MASTER OF PROFESSIONAL ACCOUNTING"},
+{"id":4,"course_code":"41163-516","course_name":"BACHELOR OF BUSINESS (ACCOUNTING)"},
+{"id":5,"course_code":"35000-581","course_name":"GRADUATE DIPLOMA OF TESOL"},
+{"id":6,"course_code":"68747-6028","course_name":"DIPLOMA OF MANAGEMENT"},
+{"id":7,"course_code":"49349-595","course_name":"GRADUATE CERTIFICATE IN BUSINESS"},
+{"id":8,"course_code":"60905-0011","course_name":"MASTER OF ARTS (TESOL)"},
+{"id":9,"course_code":"55628-1001","course_name":"GRADUATE CERTIFICATE OF INFORMATION TECHNOLOGY"},
+{"id":10,"course_code":"0268-0192","course_name":"BACHELOR OF BUSINESS (MANAGEMENT & FINANCE)"}
+]}
