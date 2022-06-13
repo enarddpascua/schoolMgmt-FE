@@ -1,21 +1,15 @@
 import Layout from '@/components/Layout'
-import Link from 'next/link'
 import CourseItem from '@/components/CourseItem'
 import {API_URL} from '@/config/index'
 
-export default function Home({result}) {
+export default function CoursePage({result}) {
   return (
     <Layout>
-      <h1>Available Courses</h1>
+      <h1>Courses</h1>
       {result.length === 0 && <h3>No courses available</h3>}
-      {result.slice(0,3).map((course) => (
+      {result.map((course) => (
         <CourseItem key={course.id} course={course}/>
       ))}
-      {result.length > 0 && (
-        <Link href='/courses'>
-          <a className='bnt-secondary'>View All Courses</a>
-        </Link>
-      )}
     </Layout>
   )
 }
