@@ -8,7 +8,7 @@ export default function Home({result}) {
     <Layout>
       <h1>Available Courses</h1>
       {result.length === 0 && <h3>No courses available</h3>}
-      {result.slice(0,3).map((course) => (
+      {result.map((course) => (
         <CourseItem key={course.id} course={course}/>
       ))}
       {result.length > 0 && (
@@ -21,11 +21,12 @@ export default function Home({result}) {
 }
 
 export async function getServerSideProps(){
-  const res = await fetch(`${API_URL}/api/courses`)
+  const res = await fetch(`${API_URL}/api/courses?populate=*&pagination[limit]=3`)
+  const course = await res.json()
   return (
     {
       props: {
-        result: await res.json(),
+        result: course.data,
         revalidate: 1
       }
     }

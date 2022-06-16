@@ -3,10 +3,10 @@
 const {courses} = require('./course_mock.json')
 
 export default function handler(req, res) {
-  if(req.method === 'GET'){
+  if(req.method === 'GET' || req.method === 'POST'){
     res.status(200).json(courses)
   }else{
-    res.setHeader('Allos', ['GET'])
+    res.setHeader('Allow', ['GET'])
     res.status(405).json({message: `Method ${req.method} is not allowed`})
   }
 }
