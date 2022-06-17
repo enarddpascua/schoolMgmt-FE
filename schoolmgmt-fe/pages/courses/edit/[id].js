@@ -12,7 +12,6 @@ import Image from 'next/image'
 import {FaImage} from 'react-icons/fa'
 
 export default function EditCoursePage({result}){
-    console.log(result)
     const {course_name, course_code, description, possible_career,slug} = result.data.attributes
     const [values, setValues] = useState({
         course_name: course_name,

@@ -1,12 +1,11 @@
 import Layout from '@/components/Layout'
 import CourseItem from '@/components/CourseItem'
-import {API_URL} from '@/config/index'
+import {API_URL, PER_PAGE} from '@/config/index'
 import Link from 'next/link'
-const PER_PAGE = 5
+import Pagination from '@/components/Pagination'
 
 export default function CoursePage({result, pagination, page}) {
-  const lastPage = Math.ceil(pagination.total / PER_PAGE)
-  console.log(page)
+ 
   return (
     <Layout>
       <h1>Courses</h1>
@@ -18,17 +17,7 @@ export default function CoursePage({result, pagination, page}) {
         <CourseItem key={course.id} course={course}/>
       ))}
 
-      {page > 1 && (
-        <Link href={`/courses?page=${page-1}`}>
-          <a className='btn-secondary'>Prev</a>
-        </Link>
-      )}
-
-      {page < lastPage && (
-        <Link href={`/courses?page=${page + 1}`}>
-          <a className='btn-secondary'>Next</a>
-        </Link>
-      )}
+     <Pagination page={page} total={pagination.total}/>
     </Layout>
   )
 }
