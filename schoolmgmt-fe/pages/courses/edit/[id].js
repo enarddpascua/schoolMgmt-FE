@@ -32,17 +32,17 @@ export default function EditCoursePage({result}){
     }
 
     const router = useRouter()
+
     const handleSubmit = async(e) => {
         e.preventDefault()
-
         //Validation
         const hasEmptyFields = Object.values(values).some((element) => element === '')
         if(hasEmptyFields){
            toast.error("Please fill in all fields")
         }
         
-        const res = await fetch(`${API_URL}/api/courses/`, {
-            method: 'POST',
+        const res = await fetch(`${API_URL}/api/courses/${result.data.id}`, {
+            method: 'PUT',
             headers:{
                 'Content-Type': 'application/json'
             },

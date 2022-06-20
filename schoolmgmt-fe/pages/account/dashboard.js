@@ -3,7 +3,6 @@ import { API_URL } from "@/config/index"
 import { parseCookies } from "@/helpers/index"
 
 export default function DashboardPage({courses}){
-    console.log(courses)
     return(
         <Layout title="User Dashboard">
             <h1>Dashboard</h1>

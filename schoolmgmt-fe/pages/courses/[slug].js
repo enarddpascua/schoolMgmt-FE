@@ -70,8 +70,7 @@ export async function getServerSideProps({query: {slug}}){
 
     return {
         props:{
-            result: course.data[0],
-            revalidate: 1
+            result: course.data[0]
         },
     }
 }

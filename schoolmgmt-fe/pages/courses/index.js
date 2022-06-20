@@ -37,7 +37,6 @@ export async function getServerSideProps({query: {page=1}}){
   const courseRes = await fetch(`${API_URL}/api/courses?populate=*&pagination[limit]=${PER_PAGE}
   &pagination[start]=${start}`)
   const courses = await courseRes.json()
-  console.log(courses.data)
   return (
     {
       props: {

@@ -26,6 +26,7 @@ export default function RegisterPage(){
 
     useEffect(() => {
         error && toast.error(error)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 

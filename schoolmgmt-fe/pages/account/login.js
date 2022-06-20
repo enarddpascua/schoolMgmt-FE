@@ -16,10 +16,12 @@ export default function LoginPage(){
 
     useEffect(() => {
         error && toast.error(error)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[error])
 
     useEffect(() => {
-        user && router.push('/account/dashboard')
+        user && router.push("/account/dashboard");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[user])
         
 
@@ -49,7 +51,7 @@ export default function LoginPage(){
                     <input type="submit" value="Login" className="btn" />
                 </form>
                 <p>
-                    Don't have an account?
+                    Dont have an account?
                     <Link href="/account/register">Register</Link>
                 </p>
             </div>
