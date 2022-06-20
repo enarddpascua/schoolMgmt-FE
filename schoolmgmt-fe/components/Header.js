@@ -28,11 +28,6 @@ export default function Header(){
                             <a>Courses</a>
                         </Link>
                     </li>
-                    <li>
-                        <Link href='/students'>
-                            <a>Students</a>
-                        </Link>
-                    </li>
                     {user ? (
                         //if logged in
                     <>
