@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import {parseCookies} from '@/helpers/index'
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -7,7 +8,7 @@ import styles from '@/styles/Form.module.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function AddPage(){
+export default function AddPage({token}){
     const [values, setValues] = useState({
         course_name:"",
         description: "",
@@ -27,11 +28,16 @@ export default function AddPage(){
         const res = await fetch(`${API_URL}/api/courses/`, {
             method: 'POST',
             headers:{
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify({data:values})
         })
         if(!res.ok){
+            if(res.status === 403 || res.status === 401){
+                toast.error("No token included")
+                return    
+            }
             toast.error("Something went wrong")
         }else{
             const course = await res.json()
@@ -98,4 +104,14 @@ export default function AddPage(){
             </form>
         </Layout>
     )
+}
+
+export async function getServerSideProps({req}){
+    const {token} = parseCookies(req)
+
+    return{
+        props:{
+            token
+        }
+    }
 }

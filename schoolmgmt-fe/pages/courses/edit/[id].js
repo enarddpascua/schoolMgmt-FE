@@ -134,6 +134,7 @@ export default function EditCoursePage({result}){
 export async function getServerSideProps({query: {id}}){
     const res = await fetch(`${API_URL}/api/courses/${id}?populate=*`)
     const result = await res.json()
+ 
     return{
         props:{
             result
